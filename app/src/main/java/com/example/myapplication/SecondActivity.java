@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioManager;
@@ -27,6 +28,10 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * 在 Android 平台使用 AudioRecord 和 AudioTrack API 完成音频 PCM 数据的采集和播放，
+ * 并实现读写音频 wav 文件
+ */
 public class SecondActivity extends AppCompatActivity {
 
     private MaterialButton recordBtn, stopBtn,playBtn;
@@ -155,6 +160,10 @@ public class SecondActivity extends AppCompatActivity {
 
     byte[] audioData = new byte[]{};
 
+    /**
+     * 播放音视频
+     */
+    @SuppressLint("StaticFieldLeak")
     private void createAudioTrack() {
         new AsyncTask<Void, Void, Void>() {
             @Override
