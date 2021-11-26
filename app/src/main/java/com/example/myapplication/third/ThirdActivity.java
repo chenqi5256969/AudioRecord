@@ -16,12 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * 在 Android Camera进行视频的采集，
- * 分别使用 SurfaceView、TextureView 来预览 Camera 数据，取到 NV21 的数据回调
+ * 使用 SurfaceView 来预览 Camera 数据，取到 NV21 的数据回调
  */
 public class ThirdActivity extends AppCompatActivity {
     private MaterialButton openCamera;
     private FrameLayout frameLayout;
-    private Camera camera;
     private ActivityResultLauncher<String> launcher;
 
     @Override
@@ -33,9 +32,8 @@ public class ThirdActivity extends AppCompatActivity {
         launcher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
             @Override
             public void onActivityResult(Boolean result) {
-                
                 if (result) {
-                    CameraPreview cameraPreview = new CameraPreview(ThirdActivity.this, Camera.open());
+                    SurfaceViewPreview cameraPreview = new SurfaceViewPreview(ThirdActivity.this, Camera.open());
                     frameLayout.addView(cameraPreview);
                 }
             }
