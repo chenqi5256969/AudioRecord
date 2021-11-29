@@ -30,7 +30,13 @@ wav 文件是在PCM的基础上，经过初步编码添加头部信息，就变�
 
 ##### TextureView：
 
+##### 有点和缺点
 
+1.TextureView也是继承于View，但是在服务端没有单独的service，而是作为view hierachy中的一个普通的view。
+
+所以它有平移，缩放等变换。
+
+2.缺点就是必须在硬件加速的情况下使用，占用内存也比SurfaceView高
 
 
 
